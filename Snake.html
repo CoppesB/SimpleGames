@@ -1,5 +1,6 @@
 <canvas id ="gc" width = "400" height = "400"></canvas>
 <script>
+
 window.onload=function() {
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
@@ -36,8 +37,8 @@ function game() {
 
 	ctx.fillStyle="black";
 	ctx.fillRect(0,0,canv.width,canv.height);
-
 	ctx.fillStyle="lime";
+	
 	for(var i=0;i<trail.length;i++) {
 		ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
 		if(trail[i].x==px && trail[i].y==py){
@@ -75,6 +76,6 @@ function keyPush(evt) {
 		case 40:
 			xv=0;yv=1;
 			break;
-}
+	}
 }
 </script>

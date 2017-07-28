@@ -1,11 +1,13 @@
 <canvas id="gc" width="800" height="600"></canvas>
 <script>
+
 px=py=200;
 xv=yv=0;
 grav=0.5;
 onGround=false;
 holdLeft=holdRight=false;
 plat=[];
+
 window.onload=function() {
 	canv=document.getElementById("gc");
 	ctx=canv.getContext("2d");
@@ -23,10 +25,13 @@ window.onload=function() {
 		);
 	}
 }
+
 function update() {
+
 	if(holdLeft) {
 		xv=-2;
 	}
+	
 	if(holdRight) {
 		xv=2;
 	}
@@ -55,12 +60,14 @@ function update() {
 	ctx.fillRect(0,0,canv.width,canv.height);
 	ctx.fillStyle="white";
 	ctx.fillRect(px-5,py-20,10,20);
+	
 	for(i=0;i<50;i++) {
 		ctx.fillRect(plat[i].x,plat[i].y,plat[i].w,plat[i].h);
 	}
 }
 
 function keyDown(evt) {
+
 	switch(evt.keyCode) {
 		case 37:
 			holdLeft = true;
@@ -77,6 +84,7 @@ function keyDown(evt) {
 }
 
 function keyUp(evt){
+
 	switch(evt.keyCode){
 		case 37:
 			holdLeft = false;
@@ -91,5 +99,4 @@ function keyUp(evt){
 			break;
 	}
 }
-
 </script>
