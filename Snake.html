@@ -14,6 +14,7 @@ ax=ay=15;
 xv=yv=0;
 trail=[];
 tail = 5;
+highScore=score=0;
 
 function game() {
 	px+=xv;
@@ -43,6 +44,7 @@ function game() {
 		ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
 		if(trail[i].x==px && trail[i].y==py){
 			tail = 5;
+			score = 0;
 		}
 	}
 
@@ -53,6 +55,12 @@ function game() {
 
 	if(ax==px  && ay==py){
 		tail++;
+		score++;
+		
+		if(score > highScore){
+		highScore++;
+		}
+		
 		ax=Math.floor(Math.random()*tc);
 		ay=Math.floor(Math.random()*tc);
 	}
@@ -60,6 +68,9 @@ function game() {
 	ctx.fillStyle="red";
 	ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
 
+	ctx.fillText("Score " + score,10,10);
+	ctx.fillText("High Score " + highScore,300,10);
+	
 }
 
 function keyPush(evt) {
